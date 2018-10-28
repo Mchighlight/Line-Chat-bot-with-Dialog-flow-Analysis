@@ -1,7 +1,7 @@
 import json
 import requests
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import firestore
 import google.cloud.exceptions # thrown exception
 
 
