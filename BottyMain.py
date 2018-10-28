@@ -115,7 +115,7 @@ def handle_message(event):
         "device.switch"   : True,
     }
 
-    #NLP analyze 1.Weather 2.news Iot-1.Light Iot-2.Lock Iot-3.Heating Iot-4.Device on off 6.Other Type
+    #NLP analyze 1.OtherType 2.smalltalk Iot-1.Light Iot-2.Lock Iot-3.Heating Iot-4.Device on off 3.weather 4.news
     Diaresponse = parse_user_text( event.message.text )
     
 
@@ -128,7 +128,7 @@ def handle_message(event):
         action    = "otherType"
 
     print( action )
-    #(1) other Type
+    #(1) other Type send sticker or telling a joke
     if   action == "otherType"      :   
         responseMessenge = "What the fuck you talk about?!!"
     #(2) small talk
@@ -156,10 +156,10 @@ def handle_message(event):
         device  = smarthomeDevice.Device( action, Diaresponse["result"], event_S )
         device.runSmarthome_Device()
         responseMessenge = device.getSpeech()
-    # check the weather
+    #(3) check the weather
     elif action == "check.weather" :
         responseMessenge = weather.runWeather() 
-    # check the news
+    #(4) check the news
     elif action == "check.news" :
         responseMessenge = news.runNews()
     # Ask about adding new device
