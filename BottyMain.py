@@ -17,14 +17,16 @@ import google.cloud.exceptions # thrown exception
 
 import requests
 import json
-import ast
-import apiai
+import ast # deal with str covert to dict
+import apiai  # Dialog Flow Api
 import sys
 import os
 
-
+#add the smarthome file to current system path
 testdir = os.path.dirname(os.path.realpath(__file__)) + "\\smarthome"
 sys.path.insert(0, testdir )
+
+#this error can neglect it 
 import smarthomeLight, smarthomeHeat, smarthomeDevice, smarthomeLock
 import weather, news
 
